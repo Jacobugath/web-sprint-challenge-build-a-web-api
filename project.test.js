@@ -81,7 +81,7 @@ describe('server.js', () => {
     })
     describe('[POST] /api/actions', () => {
       it('responds with the newly created action', async () => {
-        const actionNew = { project_id: 2, description: 'm', notes: 'n', completed: false }
+        const actionNew = {project_id: 2, description: 'm', notes: 'n', completed: false }
         const res = await request(server).post('/api/actions').send(actionNew)
         expect(res.body).toMatchObject(actionNew)
       }, 500)

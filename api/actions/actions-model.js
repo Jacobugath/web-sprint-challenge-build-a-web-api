@@ -28,11 +28,19 @@ function get(id) {
     });
   }
 }
+function getById(id) {
+  return db('actions')
+    .insert({"name": "wow","description": "B!",
+"completed": false
+  })
+    .where({ id })
+    .first();
+}
 
 function insert(action) {
   return db('actions')
-    .insert(action, 'id')
-    .then(([id]) => get(id));
+  .insert(action)
+  .then(a => {return get(a)})
 }
 
 function update(id, changes) {
